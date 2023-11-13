@@ -59,8 +59,8 @@
 
 // dynamic reconfigure
 #include <dynamic_reconfigure/server.h>
-#include <mpc_local_planner/ControllerReconfigureConfig.h>
 #include <mpc_local_planner/CollisionReconfigureConfig.h>
+#include <mpc_local_planner/ControllerReconfigureConfig.h>
 #include <mpc_local_planner/FootprintReconfigureConfig.h>
 
 #include <boost/shared_ptr.hpp>
@@ -399,9 +399,9 @@ class MpcLocalPlannerROS : public nav_core::BaseLocalPlanner, public mbf_costmap
     boost::shared_ptr<costmap_converter::BaseCostmapToPolygons> _costmap_converter;              //!< Store the current costmap_converter
 
     boost::shared_ptr<dynamic_reconfigure::Server<ControllerReconfigureConfig>>
-        dynamic_controller_recfg_;                             //!< Dynamic reconfigure server to allow config modifications at runtime
+        dynamic_controller_recfg_;  //!< Dynamic reconfigure server to allow config modifications at runtime
     boost::shared_ptr<dynamic_reconfigure::Server<CollisionReconfigureConfig>>
-        dynamic_collision_recfg_;                              //!< Dynamic reconfigure server to allow config modifications at runtime
+        dynamic_collision_recfg_;  //!< Dynamic reconfigure server to allow config modifications at runtime
     boost::shared_ptr<dynamic_reconfigure::Server<FootprintReconfigureConfig>>
         dynamic_footprint_recfg_;                              //!< Dynamic reconfigure server to allow config modifications at runtime
     ros::Subscriber _custom_obst_sub;                          //!< Subscriber for custom obstacles received via a ObstacleMsg.

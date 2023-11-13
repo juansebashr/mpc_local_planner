@@ -69,27 +69,22 @@ bool FiniteDifferencesVariableGridSE2::adaptGrid(bool new_run, NlpFunctions& nlp
     bool changed = false;
     switch (_grid_adapt)
     {
-        case GridAdaptStrategy::NoGridAdapt:
-        {
+        case GridAdaptStrategy::NoGridAdapt: {
             break;
         }
-        case GridAdaptStrategy::TimeBasedSingleStep:
-        {
+        case GridAdaptStrategy::TimeBasedSingleStep: {
             changed = adaptGridTimeBasedSingleStep(nlp_fun);
             break;
         }
-        case GridAdaptStrategy::TimeBasedAggressiveEstimate:
-        {
+        case GridAdaptStrategy::TimeBasedAggressiveEstimate: {
             changed = adaptGridTimeBasedAggressiveEstimate(nlp_fun);
             break;
         }
-        case GridAdaptStrategy::SimpleShrinkingHorizon:
-        {
+        case GridAdaptStrategy::SimpleShrinkingHorizon: {
             changed = adaptGridSimpleShrinkingHorizon(nlp_fun);
             break;
         }
-        default:
-        {
+        default: {
             PRINT_ERROR_NAMED("selected grid adaptation strategy not implemented.");
         }
     }

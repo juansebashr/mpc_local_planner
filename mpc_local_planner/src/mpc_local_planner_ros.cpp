@@ -62,19 +62,19 @@ void MpcLocalPlannerROS::reconfigureControllerCB(ControllerReconfigureConfig& co
 {
     boost::mutex::scoped_lock l(config_mutex_);
 
-    _params.xy_goal_tolerance                      = config.xy_goal_tolerance;
-    _params.yaw_goal_tolerance                     = config.yaw_goal_tolerance;
-    _params.global_plan_overwrite_orientation      = config.global_plan_overwrite_orientation;
-    _params.global_plan_prune_distance             = config.global_plan_prune_distance;
-    _params.max_global_plan_lookahead_dist         = config.max_global_plan_lookahead_dist;
-    _params.global_plan_viapoint_sep               = config.global_plan_viapoint_sep;
+    _params.xy_goal_tolerance                 = config.xy_goal_tolerance;
+    _params.yaw_goal_tolerance                = config.yaw_goal_tolerance;
+    _params.global_plan_overwrite_orientation = config.global_plan_overwrite_orientation;
+    _params.global_plan_prune_distance        = config.global_plan_prune_distance;
+    _params.max_global_plan_lookahead_dist    = config.max_global_plan_lookahead_dist;
+    _params.global_plan_viapoint_sep          = config.global_plan_viapoint_sep;
 }
 
 void MpcLocalPlannerROS::reconfigureFootprintCB(FootprintReconfigureConfig& config, uint32_t level)
 {
     boost::mutex::scoped_lock l(config_mutex_);
 
-    _params.is_footprint_dynamic                   = config.is_footprint_dynamic;
+    _params.is_footprint_dynamic = config.is_footprint_dynamic;
 }
 
 void MpcLocalPlannerROS::reconfigureCollisionCB(CollisionReconfigureConfig& config, uint32_t level)

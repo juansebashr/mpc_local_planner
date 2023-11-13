@@ -41,17 +41,14 @@ bool TimeSeriesSE2::getValuesInterpolate(double time, Eigen::Ref<Eigen::VectorXd
     {
         switch (extrapolation)
         {
-            case Extrapolation::NoExtrapolation:
-            {
+            case Extrapolation::NoExtrapolation: {
                 break;
             }
-            case Extrapolation::ZeroOrderHold:
-            {
+            case Extrapolation::ZeroOrderHold: {
                 values = getValuesMap(getTimeDimension() - 1);
                 return true;
             }
-            default:
-            {
+            default: {
                 PRINT_ERROR("TimeSeries::valuesInterpolate(): desired extrapolation method not implemented.");
                 return false;
             }
@@ -77,14 +74,12 @@ bool TimeSeriesSE2::getValuesInterpolate(double time, Eigen::Ref<Eigen::VectorXd
 
     switch (interpolation)
     {
-        case Interpolation::ZeroOrderHold:
-        {
+        case Interpolation::ZeroOrderHold: {
             if (idx < 1) idx = 1;
             values = getValuesMap(idx - 1);  // since dt > 0 -> we use the previous value
             break;
         }
-        case Interpolation::Linear:
-        {
+        case Interpolation::Linear: {
             if (idx < 1)
             {
                 values = getValuesMap(0);
@@ -102,8 +97,7 @@ bool TimeSeriesSE2::getValuesInterpolate(double time, Eigen::Ref<Eigen::VectorXd
             }
             break;
         }
-        default:
-        {
+        default: {
             PRINT_ERROR("TimeSeries::valuesInterpolate(): desired interpolation method not implemented.");
             return false;
         }
